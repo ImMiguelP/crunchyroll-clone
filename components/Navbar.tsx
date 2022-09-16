@@ -83,11 +83,12 @@ const Navbar = () => {
               <Icon mt={1} mb={-2} boxSize={"12px"} as={IoStorefront} />
               <Text fontSize={"10px"}>Store</Text>
             </VStack>
-
-            <VStack cursor={"pointer"}>
-              <Icon mt={1.5} mb={-2} boxSize={"12px"} as={BsBookmarkFill} />
-              <Text fontSize={"10px"}>Queue</Text>
-            </VStack>
+            <Link href={"/queue"}>
+              <VStack cursor={"pointer"}>
+                <Icon mt={1.5} mb={-2} boxSize={"12px"} as={BsBookmarkFill} />
+                <Text fontSize={"10px"}>Queue</Text>
+              </VStack>
+            </Link>
           </Hide>
           <Hide above="lg">
             <Icon cursor={"pointer"} boxSize={"12px"} as={HamburgerIcon} />
@@ -103,7 +104,9 @@ const Navbar = () => {
             <Menu>
               <Avatar as={MenuButton} size={"xs"} />
               <MenuList>
-                <MenuItem>Settings</MenuItem>
+                <Link href={"/settings"}>
+                  <MenuItem>Settings</MenuItem>
+                </Link>
                 <MenuItem onClick={handleLogout}>Log Out</MenuItem>
               </MenuList>
             </Menu>
