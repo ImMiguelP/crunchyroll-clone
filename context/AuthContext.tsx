@@ -1,24 +1,64 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db } from "../public/firebase";
+import { auth, db, UserData, usersCol } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  User,
 } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 
-type userType = {
-  email: string;
-  password: string;
-  username: string;
-  bday: Date;
+type ContextType = {
+  user: User | null;
+  userData: UserData | null;
+  loading: boolean;
 };
 
-const AuthCtx = createContext<any>(null);
+const AuthCtx = createContext<ContextType | null>(null);
 
-export const AuthContextProvider = ({ children }: any) => {
-  const [user, setUser] = useState<any>({});
+export const AuthContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [user, setUser] = useState<User | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const getUserData = async () => {
+    const userRef = doc(usersCol, `${user?.email}`);
+    const data = (await getDoc(userRef)).data();
+    if (data) {
+      setUserData(data);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
+      if (!userData) {
+        await getUserData();
+      }
+      setLoading(false);
+    });
+    return () => {
+      unsubscribe();
+    };
+  });
+
+  return (
+    <AuthCtx.Provider value={{ user, userData, loading }}>
+      {children}
+    </AuthCtx.Provider>
+  );
+};
+
+export function useUserAuth() {
+  const context = useContext(AuthCtx);
+  if (!context) throw new Error("Must inside of AuthCtx Provider");
+
+  const { user, userData, loading } = context;
 
   const signUp = (
     email: string,
@@ -37,25 +77,17 @@ export const AuthContextProvider = ({ children }: any) => {
   const logIn = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
+
   const logOut = () => {
     return signOut(auth);
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => {
-      unsubscribe();
-    };
-  });
-  return (
-    <AuthCtx.Provider value={{ signUp, logIn, logOut, user }}>
-      {children}
-    </AuthCtx.Provider>
-  );
-};
-
-export function UserAuth() {
-  return useContext(AuthCtx);
+  return {
+    user,
+    userData,
+    loading,
+    signUp,
+    logIn,
+    logOut,
+  };
 }

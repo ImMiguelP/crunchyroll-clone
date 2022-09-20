@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
-import { UserAuth } from "../context/AuthContext";
+import { useUserAuth } from "../context/AuthContext";
 
 const Signup = () => {
   const form = useRef<HTMLDivElement>(undefined || null);
@@ -19,7 +19,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [bday, setBday] = useState("");
-  const { signUp } = UserAuth();
+  const { signUp } = useUserAuth();
   const isInvalid = username === "" || email === "" || password === "";
   const router = useRouter();
   const [show, setShow] = React.useState(false);

@@ -1,7 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import {
+  collection,
+  CollectionReference,
+  DocumentData,
+  getFirestore,
+} from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,3 +25,16 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+// This is just a helper to add the type to the db responses
+const createCollection = <T = DocumentData,>(collectionName: string) => {
+  return collection(db, collectionName) as CollectionReference<T>;
+};
+// Import all your model types
+export type UserData = {
+  BirthDay: string;
+  savedShows: string[];
+  userName: string;
+};
+// export all your collections
+export const usersCol = createCollection<UserData>("users");

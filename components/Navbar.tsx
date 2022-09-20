@@ -22,11 +22,11 @@ import { FaUserCircle } from "react-icons/fa";
 import React from "react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import Link from "next/link";
-import { UserAuth } from "../context/AuthContext";
+import { useUserAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const { user, logOut } = UserAuth();
+  const { user, logOut } = useUserAuth();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -79,10 +79,12 @@ const Navbar = () => {
         </Hide>
         <HStack gap={"4"} justify="end">
           <Hide below="sm">
-            <VStack cursor={"pointer"}>
-              <Icon mt={1} mb={-2} boxSize={"12px"} as={IoStorefront} />
-              <Text fontSize={"10px"}>Store</Text>
-            </VStack>
+            <Link href={"/store"}>
+              <VStack cursor={"pointer"}>
+                <Icon mt={1} mb={-2} boxSize={"12px"} as={IoStorefront} />
+                <Text fontSize={"10px"}>Store</Text>
+              </VStack>
+            </Link>
             <Link href={"/queue"}>
               <VStack cursor={"pointer"}>
                 <Icon mt={1.5} mb={-2} boxSize={"12px"} as={BsBookmarkFill} />

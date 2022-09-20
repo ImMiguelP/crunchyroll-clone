@@ -1,6 +1,9 @@
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useUserAuth } from "../context/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 type AnimeType = {
   anime: {
@@ -15,6 +18,19 @@ type AnimeType = {
 
 const Anime = ({ anime }: AnimeType) => {
   const [saved, setSaved] = useState(false);
+  const [userData, setUserData] = useState<any>({});
+  const { user } = useUserAuth();
+
+  const getUserData = async () => {
+    const testRef = doc(db, "users", `${user?.email}`);
+    const test = await getDoc(testRef);
+    setUserData(test?.data());
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+  console.log(userData);
 
   const saveAnime = () => {
     setSaved(!saved);
