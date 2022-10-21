@@ -6,39 +6,29 @@ const queue = () => {
   const { userData } = useUserAuth();
 
   return (
-    <Flex w={"100%"}>
-      <VStack w={"100%"} border={"1px"}>
+    <Flex w="100%">
+      <VStack w="100%" border="1px">
         <Text>{userData?.userName}'s List</Text>
         <Grid templateColumns="repeat(4, 1fr)" gap={6}>
           <Image
-            w={"150px"}
-            src={
-              "https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
-            }
+            w="150px"
+            src="https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
           />
           <Image
-            w={"150px"}
-            src={
-              "https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
-            }
+            w="150px"
+            src="https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
           />
           <Image
-            w={"150px"}
-            src={
-              "https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
-            }
+            w="150px"
+            src="https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
           />
           <Image
-            w={"150px"}
-            src={
-              "https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
-            }
+            w="150px"
+            src="https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
           />
           <Image
-            w={"150px"}
-            src={
-              "https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
-            }
+            w="150px"
+            src="https://cdn03.boxcdn.net/sites/default/files/box_default_og_sharing_image/box-social.jpg"
           />
         </Grid>
       </VStack>

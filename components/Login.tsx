@@ -39,16 +39,16 @@ const Login = () => {
   };
   return (
     <>
-      <Hide below={"lg"}>
-        <Stack p={"10"} w={"65%"}>
-          <Heading fontSize={"30px"}>Login</Heading>
-          <Text fontSize={"12px"} color={"#a1a1a1"}>
+      <Hide below="lg">
+        <Stack p="10" w="65%">
+          <Heading fontSize="30px">Login</Heading>
+          <Text fontSize="12px" color="#a1a1a1">
             Already have an account? Log in below.
           </Text>
           <FormControl ref={form} onSubmit={handleSubmit}>
-            <Text pt={"25px"}>Email</Text>
-            <Input onChange={(e) => setEmail(e.target.value)} type={"email"} />
-            <Text pt={"25px"}>Password</Text>
+            <Text pt="25px">Email</Text>
+            <Input onChange={(e) => setEmail(e.target.value)} type="email" />
+            <Text pt="25px">Password</Text>
             <InputGroup>
               <Input
                 onChange={(e) => setPassword(e.target.value)}
@@ -60,8 +60,8 @@ const Login = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <Stack pt={"10px"}>
-              <Button h={"50px"} bgColor={"#ff760e"} onClick={handleSubmit}>
+            <Stack pt="10px">
+              <Button h="50px" bgColor="#ff760e" onClick={handleSubmit}>
                 Log In
               </Button>
             </Stack>
@@ -69,14 +69,14 @@ const Login = () => {
         </Stack>
       </Hide>
       <Hide above="lg">
-        <Heading fontSize={"30px"}>Log In</Heading>
-        <Text fontSize={"12px"} color={"#a1a1a1"}>
+        <Heading fontSize="30px">Log In</Heading>
+        <Text fontSize="12px" color="#a1a1a1">
           Already have an account? Log in below. Or create a new account.
         </Text>
         <FormControl ref={form} onSubmit={handleSubmit}>
-          <Text pt={"25px"}>Email</Text>
-          <Input onChange={(e) => setEmail(e.target.value)} type={"email"} />
-          <Text pt={"25px"}>Password</Text>
+          <Text pt="25px">Email</Text>
+          <Input onChange={(e) => setEmail(e.target.value)} type="email" />
+          <Text pt="25px">Password</Text>
           <InputGroup>
             <Input
               onChange={(e) => setPassword(e.target.value)}
@@ -88,8 +88,8 @@ const Login = () => {
               </Button>
             </InputRightElement>
           </InputGroup>
-          <Stack pt={"10px"}>
-            <Button h={"50px"} bgColor={"#ff760e"} onClick={handleSubmit}>
+          <Stack pt="10px">
+            <Button h="50px" bgColor="#ff760e" onClick={handleSubmit}>
               Log In
             </Button>
           </Stack>

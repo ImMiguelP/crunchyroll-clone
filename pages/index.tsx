@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Animerow from "../components/Animerow";
 import Banner from "../components/Banner";
@@ -6,6 +7,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Banner />
+
       <Animerow
         rowID={1}
         title="Top Anime"

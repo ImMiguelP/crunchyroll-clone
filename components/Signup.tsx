@@ -44,7 +44,7 @@ const Signup = () => {
         <Stack p={"10"} w={"100%"}>
           <Heading fontSize={"30px"}>Sign Up for a Free Account</Heading>
           <Text fontSize={"12px"} color={"#a1a1a1"}>
-            Please join Crunchyroll! It's only one click away!
+            Please join Crunchyroll! Its only one click away!
           </Text>
           <FormControl ref={form} onSubmit={handleSubmit}>
             <Stack direction={"row"}>
@@ -95,7 +95,7 @@ const Signup = () => {
           Sign Up for a Free Account
         </Heading>
         <Text fontSize={"12px"} color={"#a1a1a1"}>
-          Please join Crunchyroll! It's only one click away!
+          Please join Crunchyroll! Its only one click away!
         </Text>
         <Text pt={"25px"}>Email Address</Text>
         <Input onChange={(e) => setEmail(e.target.value)} />
@@ -124,7 +124,7 @@ const Signup = () => {
           color={"#7b737e"}
           textAlign={"center"}
         >
-          By creating an account you're agreeing to our Terms & Privacy Policy,
+          By creating an account youre agreeing to our Terms & Privacy Policy,
           and you confirm that you are at least 16 years old.
         </Text>
       </Hide>
