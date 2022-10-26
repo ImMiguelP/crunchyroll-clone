@@ -11,12 +11,12 @@ const Home: NextPage = () => {
       <Animerow
         rowID={1}
         title="Top Anime"
-        fetchURL={"https://api.jikan.moe/v4/top/anime"}
+        fetchURL="https://api.jikan.moe/v4/top/anime"
       />
       <Animerow
         rowID={2}
         title="Top Manga"
-        fetchURL={"https://api.jikan.moe/v4/top/manga"}
+        fetchURL="https://api.jikan.moe/v4/top/manga"
       />
     </>
   );

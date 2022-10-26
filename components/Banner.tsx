@@ -45,21 +45,21 @@ const Banner = () => {
 
   return (
     <>
-      <Flex pos={"relative"} alignItems={"center"} mt={"10px"}>
+      <Flex pos="relative" alignItems="center" mt="10px">
         <Stack
-          position={"absolute"}
-          w={"full"}
-          h={"350px"}
-          bg={"black"}
+          position="absolute"
+          w="full"
+          h="350px"
+          bg="black"
           __css={{ opacity: 0.3 }}
         ></Stack>
         <Flex
-          w={"full"}
-          h={"350px"}
-          overflowX={"scroll"}
-          whiteSpace={"nowrap"}
-          scrollBehavior={"smooth"}
-          overflow={"hidden"}
+          w="full"
+          h="350px"
+          overflowX="scroll"
+          whiteSpace="nowrap"
+          scrollBehavior="smooth"
+          overflow="hidden"
           ref={sliderRef}
           className="keen-slider"
         >
@@ -67,25 +67,26 @@ const Banner = () => {
             <Image
               key={idx}
               className="keen-slider__slide"
-              objectFit={"contain"}
+              objectFit="contain"
+              alt=""
               src={item}
             />
           ))}
         </Flex>
         <Icon
-          cursor={"pointer"}
+          cursor="pointer"
           as={MdChevronLeft}
-          pos={"absolute"}
-          left={"0"}
+          pos="absolute"
+          left="0"
           onClick={(e: any) =>
             e.stopPropagation() || instanceRef.current?.prev()
           }
         />
         <Icon
-          cursor={"pointer"}
+          cursor="pointer"
           as={MdChevronRight}
-          pos={"absolute"}
-          right={"0"}
+          pos="absolute"
+          right="0"
           onClick={(e: any) =>
             e.stopPropagation() || instanceRef.current?.next()
           }

@@ -7,17 +7,17 @@ const mangas = () => {
       <Animerow
         rowID={1}
         title="Top Manga"
-        fetchURL={"https://api.jikan.moe/v4/top/manga"}
+        fetchURL="https://api.jikan.moe/v4/top/manga"
       />
       <Animerow
         rowID={2}
         title="Top Manga"
-        fetchURL={"https://api.jikan.moe/v4/top/manga"}
+        fetchURL="https://api.jikan.moe/v4/top/manga"
       />
       <Animerow
         rowID={3}
         title="Top Manga"
-        fetchURL={"https://api.jikan.moe/v4/top/manga"}
+        fetchURL="https://api.jikan.moe/v4/top/manga"
       />
     </>
   );

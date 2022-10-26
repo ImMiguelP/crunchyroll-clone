@@ -32,19 +32,19 @@ const Animerow = ({
   };
   return (
     <>
-      <Heading padding={4} fontSize={"md"}>
+      <Heading padding={4} fontSize="md">
         {title}
       </Heading>
-      <Divider bg={"#fa740f"} h={"2px"} />
-      <Flex pos={"relative"} alignItems={"center"}>
+      <Divider bg="#fa740f" h="2px" />
+      <Flex pos="relative" alignItems="center">
         <MdChevronLeft onClick={leftSlider} size={40} />
         <Box
           id={"slider" + rowID}
-          w={"full"}
-          h={"full"}
-          overflowX={"scroll"}
-          whiteSpace={"nowrap"}
-          scrollBehavior={"smooth"}
+          w="full"
+          h="full"
+          overflowX="scroll"
+          whiteSpace="nowrap"
+          scrollBehavior="smooth"
           overflow="hidden"
         >
           {animes.map((item, id) => (

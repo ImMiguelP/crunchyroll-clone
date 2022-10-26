@@ -38,75 +38,69 @@ const Navbar = () => {
     }
   };
   return (
-    <Flex w={"100%"} h={"100%"}>
+    <Flex w="100%" h="100%">
       <Flex
-        px={"5%"}
-        justify={"space-between"}
-        h={"40px"}
-        fontSize={"12px"}
-        w={"100%"}
-        // boxShadow={"0px 0px 10px #ff760e"}
+        px="5%"
+        justify="space-between"
+        h="40px"
+        fontSize="12px"
+        w="100%"
+        // boxShadow="0px 0px 10px #ff760e"
       >
         <HStack>
-          <Link href={"/"}>
+          <Link href="/">
             <Image
-              cursor={"pointer"}
+              alt=""
+              cursor="pointer"
               src="logo.png"
-              boxSize={"40px"}
+              boxSize="40px"
               objectFit="contain"
             />
           </Link>
-          <InputGroup size={"xs"} w={"120px"}>
-            <InputLeftElement children={<SearchIcon color="gray.200" />} />
-            <Input rounded={"xl"} type="search" placeholder="Search" />
+          <InputGroup size="xs" w="120px">
+            <InputLeftElement>
+              <SearchIcon color="gray.200" />
+            </InputLeftElement>
+            <Input rounded="xl" type="search" placeholder="Search" />
           </InputGroup>
         </HStack>
         <Hide below="lg">
-          <HStack gap={"10"} justify={"center"}>
-            <Link href={"/shows"}>
-              <Text cursor={"pointer"}>Shows</Text>
+          <HStack gap="10" justify="center">
+            <Link href="/shows">
+              <Text cursor="pointer">Shows</Text>
             </Link>
-            <Link href={"mangas"}>
-              <Text cursor={"pointer"}>Mangas</Text>
+            <Link href="mangas">
+              <Text cursor="pointer">Mangas</Text>
             </Link>
-            <Link href={"news"}>
-              <Text cursor={"pointer"}>News</Text>
-            </Link>
-            <Link href={"games"}>
-              <Text cursor={"pointer"}>Games</Text>
+            <Link href="news">
+              <Text cursor="pointer">News</Text>
             </Link>
           </HStack>
         </Hide>
-        <HStack gap={"4"} justify="end">
+        <HStack gap="4" justify="end">
           <Hide below="sm">
-            <Link href={"/store"}>
-              <VStack cursor={"pointer"}>
-                <Icon mt={1} mb={-2} boxSize={"12px"} as={IoStorefront} />
-                <Text fontSize={"10px"}>Store</Text>
-              </VStack>
-            </Link>
-            <Link href={"/queue"}>
-              <VStack cursor={"pointer"}>
-                <Icon mt={1.5} mb={-2} boxSize={"12px"} as={BsBookmarkFill} />
-                <Text fontSize={"10px"}>Queue</Text>
+            <Link href="/queue">
+              <VStack cursor="pointer">
+                <Icon mt={1.5} mb={-2} boxSize="12px" as={BsBookmarkFill} />
+                <Text fontSize="10px">Queue</Text>
               </VStack>
             </Link>
           </Hide>
           <Hide above="lg">
-            <Icon cursor={"pointer"} boxSize={"12px"} as={HamburgerIcon} />
+            <Icon cursor="pointer" boxSize="12px" as={HamburgerIcon} />
           </Hide>
           {!user ? (
-            <Link href={"/login"}>
-              <VStack cursor={"pointer"}>
-                <Icon mt={1} mb={-2} boxSize={"14px"} as={FaUserCircle} />
-                <Text fontSize={"10px"}>Login</Text>
+            <Link href="/login">
+              <VStack cursor="pointer">
+                <Icon mt={1} mb={-2} boxSize="14px" as={FaUserCircle} />
+                <Text fontSize="10px">Login</Text>
               </VStack>
             </Link>
           ) : (
             <Menu>
-              <Avatar as={MenuButton} size={"xs"} />
+              <Avatar as={MenuButton} size="xs" />
               <MenuList>
-                <Link href={"/settings"}>
+                <Link href="/settings">
                   <MenuItem>Settings</MenuItem>
                 </Link>
                 <MenuItem onClick={handleLogout}>Log Out</MenuItem>

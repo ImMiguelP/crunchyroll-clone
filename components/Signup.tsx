@@ -41,20 +41,20 @@ const Signup = () => {
   return (
     <>
       <Hide below="lg">
-        <Stack p={"10"} w={"100%"}>
-          <Heading fontSize={"30px"}>Sign Up for a Free Account</Heading>
-          <Text fontSize={"12px"} color={"#a1a1a1"}>
+        <Stack p="10" w="100%">
+          <Heading fontSize="30px">Sign Up for a Free Account</Heading>
+          <Text fontSize="12px" color="#a1a1a1">
             Please join Crunchyroll! Its only one click away!
           </Text>
           <FormControl ref={form} onSubmit={handleSubmit}>
-            <Stack direction={"row"}>
-              <Stack w={"50%"}>
-                <Text pt={"25px"}>Email Address</Text>
+            <Stack direction="row">
+              <Stack w="50%">
+                <Text pt="25px">Email Address</Text>
                 <Input
                   onChange={(e) => setEmail(e.target.value)}
-                  type={"email"}
+                  type="email"
                 />
-                <Text pt={"25px"}>Password</Text>
+                <Text pt="25px">Password</Text>
                 <InputGroup>
                   <Input
                     onChange={(e) => setPassword(e.target.value)}
@@ -67,21 +67,18 @@ const Signup = () => {
                   </InputRightElement>
                 </InputGroup>
               </Stack>
-              <Stack w={"50%"}>
-                <Text pt={"25px"}>User Name</Text>
+              <Stack w="50%">
+                <Text pt="25px">User Name</Text>
                 <Input onChange={(e) => setUsername(e.target.value)} />
-                <Text pt={"25px"}>Birthday</Text>
-                <Input
-                  type={"date"}
-                  onChange={(e) => setBday(e.target.value)}
-                />
+                <Text pt="25px">Birthday</Text>
+                <Input type="date" onChange={(e) => setBday(e.target.value)} />
               </Stack>
             </Stack>
-            <Stack pt={"10px"}>
+            <Stack pt="10px">
               <Button
-                h={"50px"}
-                bgColor={"#ff760e"}
-                type={"submit"}
+                h="50px"
+                bgColor="#ff760e"
+                type="submit"
                 onClick={handleSubmit}
               >
                 Create Account
@@ -91,17 +88,17 @@ const Signup = () => {
         </Stack>
       </Hide>
       <Hide above="lg">
-        <Heading pt={"100px"} fontSize={"30px"}>
+        <Heading pt="100px" fontSize="30px">
           Sign Up for a Free Account
         </Heading>
-        <Text fontSize={"12px"} color={"#a1a1a1"}>
+        <Text fontSize="12px" color="#a1a1a1">
           Please join Crunchyroll! Its only one click away!
         </Text>
-        <Text pt={"25px"}>Email Address</Text>
+        <Text pt="25px">Email Address</Text>
         <Input onChange={(e) => setEmail(e.target.value)} />
-        <Text pt={"25px"}>User Name</Text>
+        <Text pt="25px">User Name</Text>
         <Input onChange={(e) => setUsername(e.target.value)} />
-        <Text pt={"25px"}>Password</Text>
+        <Text pt="25px">Password</Text>
         <InputGroup>
           <Input
             onChange={(e) => setPassword(e.target.value)}
@@ -113,17 +110,12 @@ const Signup = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-        <Text pt={"25px"}>Birthday</Text>
-        <Input type={"date"} onChange={(e) => setBday(e.target.value)} />
-        <Button h={"50px"} bgColor={"#ff760e"}>
+        <Text pt="25px">Birthday</Text>
+        <Input type="date" onChange={(e) => setBday(e.target.value)} />
+        <Button h="50px" bgColor="#ff760e">
           Create Account
         </Button>
-        <Text
-          pt={"10px"}
-          fontSize={"12px"}
-          color={"#7b737e"}
-          textAlign={"center"}
-        >
+        <Text pt="10px" fontSize="12px" color="#7b737e" textAlign="center">
           By creating an account youre agreeing to our Terms & Privacy Policy,
           and you confirm that you are at least 16 years old.
         </Text>

@@ -63,22 +63,22 @@ const Anime = ({ anime }: AnimeType) => {
         textColor="white"
       >
         <Text
-          whiteSpace={"normal"}
-          fontSize={"xs"}
-          fontWeight={"bold"}
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          h={"full"}
-          textAlign={"center"}
+          whiteSpace="normal"
+          fontSize="xs"
+          fontWeight="bold"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          h="full"
+          textAlign="center"
         >
           {anime?.title}
         </Text>
         <Icon
-          position={"absolute"}
-          top={"4"}
-          left={"4"}
-          textColor={"#ff760e"}
+          position="absolute"
+          top="4"
+          left="4"
+          textColor="#ff760e"
           as={saved ? BsBookmarkFill : BsBookmark}
           onClick={saveAnime}
         />
