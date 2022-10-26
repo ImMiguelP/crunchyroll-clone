@@ -37,15 +37,18 @@ const PrevNews = () => {
           </HStack>
         ))}
       </Stack>
-      <Link href="https://www.crunchyroll.com/">
-        <HStack h="600px" w="100%" pr="300px" justify="end" cursor="pointer">
+      <HStack h="600px" w="100%" pr="300px" justify="end">
+        <Link href="https://www.crunchyroll.com/">
           <Image
             src="https://ramenparados.com/wp-content/uploads/2020/06/The-God-of-High-School-new-poster-CR.jpg"
             alt=""
             h="100%"
+            border={"1px"}
+            borderColor="red"
+            cursor="pointer"
           />
-        </HStack>
-      </Link>
+        </Link>
+      </HStack>
     </Flex>
   );
 };
