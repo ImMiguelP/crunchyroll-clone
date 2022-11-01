@@ -82,6 +82,8 @@ export function useUserAuth() {
     return signOut(auth);
   };
 
+  const animeRef = doc(db, "users", `${user?.email}`);
+
   return {
     user,
     userData,
@@ -89,5 +91,6 @@ export function useUserAuth() {
     signUp,
     logIn,
     logOut,
+    animeRef,
   };
 }
