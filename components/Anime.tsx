@@ -2,7 +2,7 @@ import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { useUserAuth } from "../context/AuthContext";
-import { doc, getDoc } from "firebase/firestore";
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 type AnimeType = {
@@ -12,13 +12,15 @@ type AnimeType = {
         image_url: string;
       };
     };
+    mal_id: number;
     title: string;
   };
 };
 
 const Anime = ({ anime }: AnimeType) => {
   const [saved, setSaved] = useState(false);
-  const [userData, setUserData] = useState<any>({});
+  const [userData, setUserData] = useState<any>([]);
+  const [savedAnime, setSavedAnime] = useState<any>([]);
   const { user } = useUserAuth();
 
   const getUserData = async () => {
@@ -27,13 +29,29 @@ const Anime = ({ anime }: AnimeType) => {
     setUserData(test?.data());
   };
 
+  const userDB = doc(db, "users", `${user?.email}`);
+
+  const test = userData.savedShows?.map(({ id }) => id);
+
   useEffect(() => {
     getUserData();
+    setSavedAnime(userData.savedShows);
   }, []);
-  console.log(userData);
+  console.log(test);
 
-  const saveAnime = () => {
-    setSaved(!saved);
+  const saveAnime = async () => {
+    if (user?.email) {
+      setSaved(!saved);
+      await updateDoc(userDB, {
+        savedShows: arrayUnion({
+          id: anime.mal_id,
+          title: anime.title,
+          img: anime.images.jpg.image_url,
+        }),
+      });
+    } else {
+      alert("Please log in to save a movie");
+    }
   };
   return (
     <Flex
