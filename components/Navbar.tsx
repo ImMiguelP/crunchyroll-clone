@@ -16,7 +16,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { BsBookmarkFill } from "react-icons/bs";
-import { IoStorefront } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 
 import React from "react";

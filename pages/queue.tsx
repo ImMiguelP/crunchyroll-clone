@@ -4,12 +4,6 @@ import { useUserAuth } from "../context/AuthContext";
 import { BsBookmarkFill } from "react-icons/bs";
 import { updateDoc } from "firebase/firestore";
 
-interface savedAnime {
-  id: number;
-  img: string;
-  title: string;
-}
-
 const queue = () => {
   const { userData, animeRef } = useUserAuth();
 

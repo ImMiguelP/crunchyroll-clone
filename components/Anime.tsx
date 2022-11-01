@@ -1,9 +1,8 @@
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useUserAuth } from "../context/AuthContext";
-import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { arrayUnion, updateDoc } from "firebase/firestore";
 
 type AnimeType = {
   anime: {
@@ -19,30 +18,14 @@ type AnimeType = {
 
 const Anime = ({ anime }: AnimeType) => {
   const [saved, setSaved] = useState(false);
-  const [userData, setUserData] = useState<any>([]);
-  const [savedAnime, setSavedAnime] = useState<any>([]);
-  const { user } = useUserAuth();
-
-  const getUserData = async () => {
-    const testRef = doc(db, "users", `${user?.email}`);
-    const test = await getDoc(testRef);
-    setUserData(test?.data());
-  };
-
-  const userDB = doc(db, "users", `${user?.email}`);
-
-  const test = userData.savedShows?.map(({ id }) => id);
-
-  useEffect(() => {
-    getUserData();
-    setSavedAnime(userData.savedShows);
-  }, []);
+  const { user, userData, animeRef } = useUserAuth();
+  const test = userData?.savedShows?.map(({ id }) => id);
   console.log(test);
 
   const saveAnime = async () => {
     if (user?.email) {
       setSaved(!saved);
-      await updateDoc(userDB, {
+      await updateDoc(animeRef, {
         savedShows: arrayUnion({
           id: anime.mal_id,
           title: anime.title,
