@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { useUserAuth } from "../context/AuthContext";
 import { arrayUnion, updateDoc } from "firebase/firestore";
 
-type AnimeType = {
-  anime: {
+type MangaType = {
+  manga: {
     images: {
       jpg: {
         image_url: string;
@@ -16,24 +16,24 @@ type AnimeType = {
   };
 };
 
-const Anime = ({ anime }: AnimeType) => {
+const Manga = ({ manga }: MangaType) => {
   const [saved, setSaved] = useState(false);
   const { user, userData, animeRef } = useUserAuth();
   const test = userData?.savedShows?.map(({ id }) => id);
   console.log(test);
 
-  const saveAnime = async () => {
+  const saveManga = async () => {
     if (user?.email) {
       setSaved(!saved);
       await updateDoc(animeRef, {
-        savedShows: arrayUnion({
-          id: anime.mal_id,
-          title: anime.title,
-          img: anime.images.jpg.image_url,
+        savedMangas: arrayUnion({
+          id: manga.mal_id,
+          title: manga.title,
+          img: manga.images.jpg.image_url,
         }),
       });
     } else {
-      alert("Please log in to save an anime");
+      alert("Please log in to save a manga");
     }
   };
   return (
@@ -51,7 +51,7 @@ const Anime = ({ anime }: AnimeType) => {
         h="full"
         display="block"
         objectFit="cover"
-        src={anime.images.jpg.image_url}
+        src={manga.images.jpg.image_url}
       />
       <Box
         position="absolute"
@@ -73,7 +73,7 @@ const Anime = ({ anime }: AnimeType) => {
           h="full"
           textAlign="center"
         >
-          {anime?.title}
+          {manga?.title}
         </Text>
         <Icon
           position="absolute"
@@ -81,11 +81,11 @@ const Anime = ({ anime }: AnimeType) => {
           left="4"
           textColor="#ff760e"
           as={saved ? BsBookmarkFill : BsBookmark}
-          onClick={saveAnime}
+          onClick={saveManga}
         />
       </Box>
     </Flex>
   );
 };
 
-export default Anime;
+export default Manga;

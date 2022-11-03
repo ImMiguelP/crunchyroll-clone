@@ -1,20 +1,20 @@
 import React from "react";
-import Animerow from "../components/Animerow";
+import Mangarow from "../components/Mangarow";
 
 const mangas = () => {
   return (
     <>
-      <Animerow
+      <Mangarow
         rowID={1}
         title="Top Manga"
         fetchURL="https://api.jikan.moe/v4/top/manga"
       />
-      <Animerow
+      <Mangarow
         rowID={2}
         title="Top Manga"
         fetchURL="https://api.jikan.moe/v4/top/manga"
       />
-      <Animerow
+      <Mangarow
         rowID={3}
         title="Top Manga"
         fetchURL="https://api.jikan.moe/v4/top/manga"

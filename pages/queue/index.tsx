@@ -1,8 +1,20 @@
-import { Box, Flex, Grid, Icon, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Grid,
+  Icon,
+  Image,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import React from "react";
-import { useUserAuth } from "../context/AuthContext";
 import { BsBookmarkFill } from "react-icons/bs";
 import { updateDoc } from "firebase/firestore";
+import { useUserAuth } from "../../context/AuthContext";
+import Link from "next/link";
 
 const queue = () => {
   const { userData, animeRef } = useUserAuth();
@@ -20,15 +32,23 @@ const queue = () => {
     }
   };
 
-  console.log(userData);
   return (
     <Flex w="100%">
       <VStack w="100%" mt={10}>
         <Text>{userData?.userName}s Queue</Text>
-        <Grid templateColumns="repeat(6, 1fr)" gap={6}>
+        <Stack direction="row" w="1000px" justify="center" p={3}>
+          <Button isDisabled w="100px">
+            Animes
+          </Button>
+          <Link href="/queue/mangas">
+            <Button w="100px">Mangas</Button>
+          </Link>
+        </Stack>
+        <Divider bgColor="crunchyroll" />
+        <Grid pt={10} templateColumns="repeat(6, 1fr)" gap={6}>
           {userData?.savedShows.map((item, id) => (
             <Box pos="relative" key={id} cursor="pointer">
-              <Image alt="" w="150px" src={item.img} />
+              <Image alt="" w="150px" h="225px" src={item.img} />
               <Box
                 position="absolute"
                 top="0"
