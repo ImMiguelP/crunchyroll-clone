@@ -30,10 +30,17 @@ export const db = getFirestore(app);
 const createCollection = <T = DocumentData,>(collectionName: string) => {
   return collection(db, collectionName) as CollectionReference<T>;
 };
+
+type savedContent = {
+  img: string | undefined;
+  title: string | undefined;
+  id: number;
+};
 // Import all your model types
 export type UserData = {
   BirthDay: string;
-  savedShows: string[];
+  savedShows: savedContent[];
+  savedMangas: savedContent[];
   userName: string;
 };
 // export all your collections

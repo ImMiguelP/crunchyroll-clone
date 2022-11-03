@@ -71,6 +71,7 @@ export function useUserAuth() {
       userName: username,
       BirthDay: bday || "",
       savedShows: [],
+      savedMangas: [],
     });
   };
 
